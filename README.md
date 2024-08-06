@@ -35,8 +35,10 @@ Para crear y correr los contenedores se ejecuta el comando completo, unas vez cr
 ```bash
 docker-compose up --build
 ```
+---
+```console
+ 
 
-## Servidor corriendo
  ╭────────── FastAPI  ────────────────────────────────────────────────────────╮
  │                                                                            │
  │  INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit) │
