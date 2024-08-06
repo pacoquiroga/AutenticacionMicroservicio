@@ -26,9 +26,24 @@ Este proyecto implementa un microservicio de autenticación usando FastAPI y MyS
 ## Requisitos
 
 - Docker
-- Docker Compose (opcional, pero recomendado)
+- Docker Compose
 - Python 3.9+
 - FastAPI
+
+## .env
+Importante crear un archivo .env en la raiz del proyecto con las variables de entorno necesarias para que funcione el Microservicio.
+
+```bash
+DB_DIALECT=mysql
+DB_USER=root
+DB_PASSWORD=12345
+DB_HOST=db
+DB_PORT=3306
+DB_NAME=AutenticacionDB
+SECRET_KEY=$2a$12$6li4g9rhuixJ3Ms8fhetgfergsxSZObtasdgdfPyct54ZCn.C6
+ALGORITHM=HS256
+
+```
 ---
 ## Crear y correr contenedores
 Para crear y correr los contenedores se ejecuta el comando completo, unas vez creados podemos usar el comando sin --build o unicamente encender los contenedores desde Docker Desktop
