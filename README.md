@@ -30,53 +30,13 @@ Este proyecto implementa un microservicio de autenticación usando FastAPI y MyS
 - Python 3.9+
 - FastAPI
 ---
-## Docker Network
+## Crear y correr contenedores
+Para crear y correr los contenedores se ejecuta el comando completo, unas vez creados podemos usar el comando sin --build o unicamente encender los contenedores desde Docker Desktop
 ```bash
-docker network create Autenticacion_Network 
+docker-compose up --build
 ```
 
-## Contenedor Docker BD
-
-```bash
-#Correr contenedor docker sin puertos
-
-docker run --name AutenticacionDB --network Autenticacion_Network -p 3306:3306 -e MYSQL_ROOT_PASSWORD=12345 -d mysql
-
-#Entrar al contenedor
-docker exec -it AutenticacionDB bash
-```
----
-
-## Contenedor Docker Microservicio
-
-```bash
-#Abrir una terminal y navegar al directorio del proyecto. Ejecutar el siguiente comando para construir la imagen Docker:
-
-docker build -t microservicioautenticacion .
-
-
-#Una vez creada la imagen, corremos un contenedor
-
-docker run -d --name MicroservicioAutenticacion --network Autenticacion_Network -p 8000:8000 microservicioautenticacion
-
-```
-
----
-## Correr microservicio
-
-### Instalar dependencias
-
-```bash
-pip install -r requirements.txt
-```
-
-### Correr servidor con:
-
-<div class="termy">
-
-```console
-$ uvicorn main:app --reload  
-
+## Servidor corriendo
  ╭────────── FastAPI  ────────────────────────────────────────────────────────╮
  │                                                                            │
  │  INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit) │

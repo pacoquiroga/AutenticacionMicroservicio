@@ -4,12 +4,10 @@ from models import Base
 from database.database import Base, engine
 from Routes.login.login import router as login_router
 
-
-#se crean tablas de datos si no estan creadas
+# Crear las tablas en la base de datos
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-
 
 app.add_middleware(
     CORSMiddleware,
@@ -17,11 +15,10 @@ app.add_middleware(
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
-    )
+)
 
 @app.get("/")
 async def root():
     return {"message": "Microservicio Autenticacion"}
-
 
 app.include_router(login_router)

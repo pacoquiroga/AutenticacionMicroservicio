@@ -1,19 +1,22 @@
-# Usa una imagen base oficial de Python con la versión que necesitas
-FROM python:3.9
+# Usar una imagen oficial de Python como base
+FROM python:3.11
 
-# Establece el directorio de trabajo en /app
+# Establecer el directorio de trabajo dentro del contenedor
 WORKDIR /app
 
-# Copia el archivo de requisitos y luego instálalos
+# Copiar los archivos de requerimientos al contenedor
 COPY requirements.txt .
 
+# Instalar las dependencias necesarias
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copia el contenido de tu aplicación al directorio de trabajo
+RUN pip install mysqlclient
+
+# Copiar el resto del código de la aplicación al contenedor
 COPY . .
 
-# Expone el puerto en el que correrá tu aplicación (modifica si usas otro puerto)
+# Exponer el puerto en el que correrá la aplicación
 EXPOSE 8000
 
-# Comando para correr la aplicación usando uvicorn
+# Comando para ejecutar la aplicación
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
