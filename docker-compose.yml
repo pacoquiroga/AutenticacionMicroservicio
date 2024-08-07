@@ -5,7 +5,7 @@ services:
     image: mysql:9.0.1
     container_name: AutenticacionDB
     environment:
-      MYSQL_ROOT_PASSWORD: 12345
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
       MYSQL_DATABASE: AutenticacionDB
     ports:
       - "3306:3306"
