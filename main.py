@@ -19,6 +19,6 @@ app.add_middleware(
 
 @app.get("/")
 async def root():
-    return {"message": "Microservicio Autenticacion"}
+    return {"message": "Microservicio Autenticacion Lista"}
 
 app.include_router(login_router)
